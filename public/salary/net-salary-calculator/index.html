@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026 연봉 실수령액 계산기 – 월급·4대보험·세금 | 우리집계산기</title>
+  <meta name="description" content="연봉 또는 월급을 입력하면 2026년 사회보험 기준을 반영해 월 예상 실수령액과 공제 항목을 계산합니다.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://example.com/salary/net-salary-calculator/">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="우리집계산기">
+  <meta property="og:title" content="2026 연봉 실수령액 계산기 – 월급·4대보험·세금 | 우리집계산기">
+  <meta property="og:description" content="연봉 또는 월급을 입력하면 2026년 사회보험 기준을 반영해 월 예상 실수령액과 공제 항목을 계산합니다.">
+  <meta property="og:url" content="https://example.com/salary/net-salary-calculator/">
+  <meta property="og:image" content="https://example.com/assets/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#3157d5">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/assets/styles.css">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"연봉 실수령액 계산기","url":"https://example.com/salary/net-salary-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web","isAccessibleForFree":true,"description":"연봉 또는 월급을 입력하면 2026년 사회보험 기준을 반영해 월 예상 실수령액과 공제 항목을 계산합니다.","provider":{"@type":"Organization","name":"우리집계산기","url":"https://example.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://example.com/"},{"@type":"ListItem","position":2,"name":"급여·노무","item":"https://example.com/salary/"},{"@type":"ListItem","position":3,"name":"연봉 실수령액 계산기","item":"https://example.com/salary/net-salary-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"연봉에 퇴직금이 포함되나요?","acceptedAnswer":{"@type":"Answer","text":"회사 계약에 따라 다르므로 연봉계약서를 확인해야 합니다. 이 계산기는 입력한 금액을 12개월 급여로 단순 환산합니다."}},{"@type":"Question","name":"왜 다른 계산기와 금액이 다른가요?","acceptedAnswer":{"@type":"Answer","text":"간이세액표 적용, 부양가족, 비과세액, 보험료 산정기준의 차이 때문입니다."}}]}</script>
+</head>
+<body>
+  
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="우리집계산기 홈">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 10.8 12 4l8 6.8v8.1a1.1 1.1 0 0 1-1.1 1.1H5.1A1.1 1.1 0 0 1 4 18.9v-8.1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.3 11.5h7.4M8.3 15h2.1m3.2 0h2.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </span>
+        <span class="brand-copy"><strong>우리집계산기</strong><small>세금부터 급여·대출·투자·생활비까지 한 번에</small></span>
+      </a>
+      <button class="menu-button" type="button" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+      <nav class="main-nav" aria-label="주요 메뉴"><a href="/tax/" >세금·사업자</a><a href="/salary/" aria-current="page">급여·노무</a><a href="/loan/" >대출·저축</a><a href="/real-estate/" >부동산</a><a href="/investment/" >투자</a><a href="/living/" >생활</a><a href="/about/">소개</a></nav>
+    </div>
+  </header>
+  <main id="main"><div class="breadcrumb-wrap"><div class="container breadcrumb"><a href="/">홈</a><a href="/salary/">급여·노무</a><span>연봉 실수령액 계산기</span></div></div>
+  <section class="page-hero"><div class="container page-hero-inner"><div><span class="page-kicker">급여·노무 · 2026 기준</span><h1>연봉 실수령액 계산기</h1><p>연봉 또는 월급을 입력하면 2026년 사회보험 기준을 반영해 월 예상 실수령액과 공제 항목을 계산합니다.</p></div><div class="page-hero-icon">₩</div></div></section>
+  <div class="container calc-layout"><div class="calc-main"><section class="panel calc-card">
+    <div class="calc-card-header"><strong>연봉 실수령액 계산기</strong><span>입력값은 서버에 저장되지 않습니다</span></div>
+    <form class="calc-form" id="calculatorForm" data-calculator-id="netSalary">
+      
+      <div class="segmented" data-segment-group="salaryMode"><label><input type="radio" name="salaryMode" value="annual" checked><span>연봉으로 계산</span></label><label><input type="radio" name="salaryMode" value="monthly" ><span>월급으로 계산</span></label></div>
+      <div class="field-grid"><div class="field full"><span class="field-label">연봉 또는 월급</span><div class="input-wrap"><input class="money-input" id="salaryAmount" name="salaryAmount" type="text" inputmode="numeric" value="48000000" autocomplete="off"><span class="input-unit">원</span></div><p class="field-help">선택한 기준에 맞춰 세전 금액을 입력하세요.</p></div><div class="field "><span class="field-label">월 비과세액</span><div class="input-wrap"><input class="money-input" id="salaryNonTax" name="salaryNonTax" type="text" inputmode="numeric" value="200000" autocomplete="off"><span class="input-unit">원</span></div><p class="field-help">식대 등 실제 비과세로 처리되는 월 금액입니다.</p></div> <div class="field "><span class="field-label">부양가족 수</span><div class="input-wrap"><input id="salaryDependents" name="salaryDependents" type="number" value="1" step="any" min="1"><span class="input-unit">명</span></div><p class="field-help">본인을 포함한 기본공제 대상 인원입니다.</p></div> <div class="field "><span class="field-label">8~20세 자녀 수</span><div class="input-wrap"><input id="salaryChildren" name="salaryChildren" type="number" value="0" step="any" min="0"><span class="input-unit">명</span></div><p class="field-help">간편 세액 추정에만 활용됩니다.</p></div> <div class="field "><span class="field-label">간이세액 선택</span><select id="salaryWithholdingRatio" name="salaryWithholdingRatio"><option value="80" >80%</option><option value="100" selected>100%</option><option value="120" >120%</option></select></div></div>
+      <div style="margin-top:22px"><span class="field-label">소득세 계산 방식</span><div class="segmented" data-segment-group="salaryTaxMode"><label><input type="radio" name="salaryTaxMode" value="auto" checked><span>자동 간편 추정</span></label><label><input type="radio" name="salaryTaxMode" value="manual" ><span>월 소득세 직접입력</span></label></div><div data-mode-for="salaryTaxMode" data-mode-value="manual"><div class="field-grid"><div class="field full"><span class="field-label">월 근로소득세</span><div class="input-wrap"><input class="money-input" id="salaryManualTax" name="salaryManualTax" type="text" inputmode="numeric" value="0" autocomplete="off"><span class="input-unit">원</span></div><p class="field-help">급여명세서의 소득세를 알고 있을 때 입력하세요.</p></div></div></div></div>
+      <div class="form-actions"><button class="btn btn-primary" type="submit">계산하기</button><button class="btn btn-secondary" id="exampleButton" type="button">예시 입력</button><button class="btn btn-secondary" id="resetButton" type="button">초기화</button></div>
+      <section class="result-box" id="resultBox" aria-live="polite" hidden>
+        <div class="result-head"><strong>계산 결과</strong><div><button class="btn btn-secondary btn-small" id="copyResult" type="button">결과 복사</button> <button class="btn btn-secondary btn-small" id="printButton" type="button">인쇄</button></div></div>
+        <div class="result-summary"><small id="resultSummaryLabel">계산 결과</small><b id="resultSummaryValue">-</b></div>
+        <div class="result-list" id="resultList"></div><p class="result-note" id="resultNote"></p><div class="result-alert" id="resultAlert" hidden></div><div id="resultExtra" hidden></div>
+      </section>
+    </form>
+  </section>
+  <section class="content-section"><h2>연봉 실수령액 계산기 사용 방법</h2><ol><li>계산 기준을 선택하고 필요한 값을 입력합니다.</li><li><strong>계산하기</strong>를 눌러 핵심 결과와 세부 내역을 확인합니다.</li><li>결과 복사 또는 인쇄 기능으로 저장하고, 실제 계약·신고·투자 전 관계기관 기준과 비교합니다.</li></ol><h3>계산 공식</h3><div class="formula">월 실수령액 = 세전 월급 − 국민연금 − 건강보험 − 장기요양보험 − 고용보험 − 소득세 − 지방소득세</div><h3>정확하게 사용하는 팁</h3><ul><li>비과세액은 회사 급여명세서의 실제 비과세 항목만 입력하세요.</li><li>소득세는 간이 추정치이므로 실제 급여명세서와 비교하세요.</li><li>상여·성과급이 별도 지급되면 월별 실수령액이 달라질 수 있습니다.</li></ul><div class="notice">2026년 7월 이후 국민연금 4.75%, 건강보험 근로자 부담 3.595%, 고용보험 0.9%를 기본 적용합니다. 계산 결과는 일반적인 참고값이며 개인별 조건과 최신 제도에 따라 달라질 수 있습니다.</div></section>
+  <section class="content-section"><h2>자주 묻는 질문</h2><h3>연봉에 퇴직금이 포함되나요?</h3><p>회사 계약에 따라 다르므로 연봉계약서를 확인해야 합니다. 이 계산기는 입력한 금액을 12개월 급여로 단순 환산합니다.</p><h3>왜 다른 계산기와 금액이 다른가요?</h3><p>간이세액표 적용, 부양가족, 비과세액, 보험료 산정기준의 차이 때문입니다.</p></section><section class="content-section"><h2>함께 사용하면 좋은 계산기</h2><div class="related-grid"><a class="related-link" href="/salary/hourly-monthly-calculator/"><strong>시급·월급 변환 계산기</strong><span>근무시간과 주휴수당을 반영해 시급과 월급을 변환합니다.</span></a><a class="related-link" href="/salary/weekly-holiday-pay-calculator/"><strong>주휴수당 계산기</strong><span>주 15시간 이상 여부와 유급 주휴시간을 함께 확인합니다.</span></a><a class="related-link" href="/salary/severance-pay-calculator/"><strong>퇴직금 계산기</strong><span>최근 3개월 임금과 상여·연차수당을 반영합니다.</span></a></div></section></div>
+  <aside class="calc-sidebar"><div class="info-card"><h3>이 계산기의 기준</h3><p>2026년 7월 이후 국민연금 4.75%, 건강보험 근로자 부담 3.595%, 고용보험 0.9%를 기본 적용합니다.</p></div><div class="info-card source"><h3>기준·출처 확인</h3><p>국민연금·건강보험·국세청 공식 기준 참고</p><a class="source-link" href="https://www.nps.or.kr/" target="_blank" rel="noopener noreferrer">공식 자료 열기 →</a></div><div class="info-card"><h3>꼭 확인하세요</h3><ul><li>입력값은 브라우저에서만 계산됩니다.</li><li>결과는 참고용이며 법률·세무·금융 자문이 아닙니다.</li><li>기준 변경 시 실제 금액과 차이가 날 수 있습니다.</li></ul></div></aside></div></main>
+  
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand"><strong>우리집계산기</strong><p>3.3% 원천징수, 부가세, 연봉 실수령액, 퇴직금, 대출이자, 전월세, 투자수익률까지 무료로 계산하세요. 모든 계산 결과는 일반적인 참고용이며 실제 적용금액과 다를 수 있습니다.</p></div>
+        <div class="footer-links"><h3>서비스</h3><a href="/about/">사이트 소개</a><a href="/disclaimer/">계산 결과 면책</a><a href="/contact/">문의하기</a></div>
+        <div class="footer-links"><h3>정책</h3><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a><a href="/sitemap.xml">사이트맵</a></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 우리집계산기. All rights reserved.</span><span>세금·노무·금융 계산은 관계기관의 최신 기준을 다시 확인하세요.</span></div>
+    </div>
+  </footer>
+  <div class="toast" role="status" aria-live="polite"></div>
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/calculators.js" defer></script>
+</body>
+</html>

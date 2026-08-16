@@ -1,0 +1,1 @@
+# AdSense 승인 후 site.config.json에 게시자 ID를 입력하고 다시 빌드하세요.

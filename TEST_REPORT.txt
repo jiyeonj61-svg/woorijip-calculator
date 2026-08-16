@@ -1,0 +1,31 @@
+우리집계산기 검증 결과
+====================
+
+검증일: 2026-08-16
+
+1. 정적 빌드
+- npm run build: 성공
+- 생성된 계산기: 20개
+- 생성된 색인 대상 URL: 32개
+
+2. 구조 검사
+- npm run check: 성공
+- 20개 계산기별 index.html 존재 확인
+- 계산기별 form ID 확인
+- canonical 확인
+- H1 확인
+- sitemap.xml, robots.txt, ads.txt 확인
+- 공통 CSS·JavaScript 파일 확인
+
+3. JavaScript 문법 검사
+- site.js: 성공
+- calculators.js: 성공
+
+4. 브라우저 동작 검사
+- Chromium 기반 자동검사
+- 홈페이지 계산기 카드 20개 확인
+- 20개 계산기 각각 예시 입력 실행
+- 20개 계산기 모두 결과 영역 출력 확인
+- 데스크톱·모바일 화면 렌더링 확인
+
+주의: 실제 도메인 배포 후에는 Cloudflare Pages 임시 주소와 실제 도메인에서 한 번 더 확인하세요.

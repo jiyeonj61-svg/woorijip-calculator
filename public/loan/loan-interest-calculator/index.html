@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>대출이자 계산기 – 기간·일수별 이자 계산 | 우리집계산기</title>
+  <meta name="description" content="대출원금과 금리, 기간을 입력해 단순이자와 총 상환금액을 월 단위 또는 실제 일수로 계산합니다.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://example.com/loan/loan-interest-calculator/">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="우리집계산기">
+  <meta property="og:title" content="대출이자 계산기 – 기간·일수별 이자 계산 | 우리집계산기">
+  <meta property="og:description" content="대출원금과 금리, 기간을 입력해 단순이자와 총 상환금액을 월 단위 또는 실제 일수로 계산합니다.">
+  <meta property="og:url" content="https://example.com/loan/loan-interest-calculator/">
+  <meta property="og:image" content="https://example.com/assets/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#3157d5">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/assets/styles.css">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"대출이자 계산기","url":"https://example.com/loan/loan-interest-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web","isAccessibleForFree":true,"description":"대출원금과 금리, 기간을 입력해 단순이자와 총 상환금액을 월 단위 또는 실제 일수로 계산합니다.","provider":{"@type":"Organization","name":"우리집계산기","url":"https://example.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://example.com/"},{"@type":"ListItem","position":2,"name":"대출·저축","item":"https://example.com/loan/"},{"@type":"ListItem","position":3,"name":"대출이자 계산기","item":"https://example.com/loan/loan-interest-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"월 이자는 연이율을 12로 나누면 되나요?","acceptedAnswer":{"@type":"Answer","text":"단순 계산은 가능하지만 금융기관은 실제 일수와 납입일을 적용할 수 있습니다."}},{"@type":"Question","name":"원리금균등상환에도 이 계산기를 쓰나요?","acceptedAnswer":{"@type":"Answer","text":"이 페이지는 단순이자·만기일시상환에 적합합니다. 원리금균등상환 전용 계산기를 이용하세요."}}]}</script>
+</head>
+<body>
+  
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="우리집계산기 홈">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 10.8 12 4l8 6.8v8.1a1.1 1.1 0 0 1-1.1 1.1H5.1A1.1 1.1 0 0 1 4 18.9v-8.1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.3 11.5h7.4M8.3 15h2.1m3.2 0h2.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </span>
+        <span class="brand-copy"><strong>우리집계산기</strong><small>세금부터 급여·대출·투자·생활비까지 한 번에</small></span>
+      </a>
+      <button class="menu-button" type="button" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+      <nav class="main-nav" aria-label="주요 메뉴"><a href="/tax/" >세금·사업자</a><a href="/salary/" >급여·노무</a><a href="/loan/" aria-current="page">대출·저축</a><a href="/real-estate/" >부동산</a><a href="/investment/" >투자</a><a href="/living/" >생활</a><a href="/about/">소개</a></nav>
+    </div>
+  </header>
+  <main id="main"><div class="breadcrumb-wrap"><div class="container breadcrumb"><a href="/">홈</a><a href="/loan/">대출·저축</a><span>대출이자 계산기</span></div></div>
+  <section class="page-hero"><div class="container page-hero-inner"><div><span class="page-kicker">대출·저축 · 간편</span><h1>대출이자 계산기</h1><p>대출원금과 금리, 기간을 입력해 단순이자와 총 상환금액을 월 단위 또는 실제 일수로 계산합니다.</p></div><div class="page-hero-icon">↗</div></div></section>
+  <div class="container calc-layout"><div class="calc-main"><section class="panel calc-card">
+    <div class="calc-card-header"><strong>대출이자 계산기</strong><span>입력값은 서버에 저장되지 않습니다</span></div>
+    <form class="calc-form" id="calculatorForm" data-calculator-id="loanInterest">
+      
+      <div class="segmented" data-segment-group="loanInterestMode"><label><input type="radio" name="loanInterestMode" value="months" checked><span>개월 수로 계산</span></label><label><input type="radio" name="loanInterestMode" value="dates" ><span>날짜로 계산</span></label></div>
+      <div class="field-grid"><div class="field full"><span class="field-label">대출원금</span><div class="input-wrap"><input class="money-input" id="loanInterestPrincipal" name="loanInterestPrincipal" type="text" inputmode="numeric" value="100000000" autocomplete="off"><span class="input-unit">원</span></div></div><div class="field "><span class="field-label">연이율</span><div class="input-wrap"><input id="loanInterestRate" name="loanInterestRate" type="number" value="4.2" step="any" ><span class="input-unit">%</span></div></div></div>
+      <div data-mode-for="loanInterestMode" data-mode-value="months"><div class="field-grid" style="margin-top:16px"><div class="field "><span class="field-label">대출기간</span><div class="input-wrap"><input id="loanInterestMonths" name="loanInterestMonths" type="number" value="12" step="any" min="0"><span class="input-unit">개월</span></div></div></div></div>
+      <div data-mode-for="loanInterestMode" data-mode-value="dates"><div class="field-grid" style="margin-top:16px"><div class="field "><span class="field-label">시작일</span><input id="loanInterestStartDate" name="loanInterestStartDate" type="date" value="2026-01-01"></div><div class="field "><span class="field-label">종료일</span><input id="loanInterestEndDate" name="loanInterestEndDate" type="date" value="2027-01-01"></div><div class="field "><span class="field-label">연간 일수 기준</span><select id="loanInterestDayBasis" name="loanInterestDayBasis"><option value="365" selected>365일</option><option value="366" >366일</option></select></div></div></div>
+      <div class="form-actions"><button class="btn btn-primary" type="submit">계산하기</button><button class="btn btn-secondary" id="exampleButton" type="button">예시 입력</button><button class="btn btn-secondary" id="resetButton" type="button">초기화</button></div>
+      <section class="result-box" id="resultBox" aria-live="polite" hidden>
+        <div class="result-head"><strong>계산 결과</strong><div><button class="btn btn-secondary btn-small" id="copyResult" type="button">결과 복사</button> <button class="btn btn-secondary btn-small" id="printButton" type="button">인쇄</button></div></div>
+        <div class="result-summary"><small id="resultSummaryLabel">계산 결과</small><b id="resultSummaryValue">-</b></div>
+        <div class="result-list" id="resultList"></div><p class="result-note" id="resultNote"></p><div class="result-alert" id="resultAlert" hidden></div><div id="resultExtra" hidden></div>
+      </section>
+    </form>
+  </section>
+  <section class="content-section"><h2>대출이자 계산기 사용 방법</h2><ol><li>계산 기준을 선택하고 필요한 값을 입력합니다.</li><li><strong>계산하기</strong>를 눌러 핵심 결과와 세부 내역을 확인합니다.</li><li>결과 복사 또는 인쇄 기능으로 저장하고, 실제 계약·신고·투자 전 관계기관 기준과 비교합니다.</li></ol><h3>계산 공식</h3><div class="formula">이자 = 대출원금 × 연이율 × 대출기간(연 단위)</div><h3>정확하게 사용하는 팁</h3><ul><li>단기 대출은 실제 일수 방식이 더 정확할 수 있습니다.</li><li>변동금리와 중도상환수수료는 별도로 고려하세요.</li></ul><div class="notice">원금 × 연이율 × 기간의 단순이자 방식입니다. 계산 결과는 일반적인 참고값이며 개인별 조건과 최신 제도에 따라 달라질 수 있습니다.</div></section>
+  <section class="content-section"><h2>자주 묻는 질문</h2><h3>월 이자는 연이율을 12로 나누면 되나요?</h3><p>단순 계산은 가능하지만 금융기관은 실제 일수와 납입일을 적용할 수 있습니다.</p><h3>원리금균등상환에도 이 계산기를 쓰나요?</h3><p>이 페이지는 단순이자·만기일시상환에 적합합니다. 원리금균등상환 전용 계산기를 이용하세요.</p></section><section class="content-section"><h2>함께 사용하면 좋은 계산기</h2><div class="related-grid"><a class="related-link" href="/loan/equal-payment-calculator/"><strong>원리금균등상환 계산기</strong><span>추가상환을 반영해 기간과 이자 절감효과도 비교합니다.</span></a><a class="related-link" href="/loan/deposit-interest-calculator/"><strong>예금이자 계산기</strong><span>일반과세 15.4%를 기본값으로 세후 수령액을 확인합니다.</span></a><a class="related-link" href="/tax/3-3-calculator/"><strong>3.3% 계산기</strong><span>계약금액과 실제 수령액 어느 쪽에서도 3.3%를 계산합니다.</span></a></div></section></div>
+  <aside class="calc-sidebar"><div class="info-card"><h3>이 계산기의 기준</h3><p>원금 × 연이율 × 기간의 단순이자 방식입니다.</p></div><div class="info-card source"><h3>기준·출처 확인</h3><p>일반 금융 산식</p></div><div class="info-card"><h3>꼭 확인하세요</h3><ul><li>입력값은 브라우저에서만 계산됩니다.</li><li>결과는 참고용이며 법률·세무·금융 자문이 아닙니다.</li><li>기준 변경 시 실제 금액과 차이가 날 수 있습니다.</li></ul></div></aside></div></main>
+  
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand"><strong>우리집계산기</strong><p>3.3% 원천징수, 부가세, 연봉 실수령액, 퇴직금, 대출이자, 전월세, 투자수익률까지 무료로 계산하세요. 모든 계산 결과는 일반적인 참고용이며 실제 적용금액과 다를 수 있습니다.</p></div>
+        <div class="footer-links"><h3>서비스</h3><a href="/about/">사이트 소개</a><a href="/disclaimer/">계산 결과 면책</a><a href="/contact/">문의하기</a></div>
+        <div class="footer-links"><h3>정책</h3><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a><a href="/sitemap.xml">사이트맵</a></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 우리집계산기. All rights reserved.</span><span>세금·노무·금융 계산은 관계기관의 최신 기준을 다시 확인하세요.</span></div>
+    </div>
+  </footer>
+  <div class="toast" role="status" aria-live="polite"></div>
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/calculators.js" defer></script>
+</body>
+</html>

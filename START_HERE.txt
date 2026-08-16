@@ -1,0 +1,28 @@
+우리집계산기 시작 안내
+======================
+
+1. site.config.json을 열어 다음 두 값을 실제 정보로 수정
+   - siteUrl
+   - contactEmail
+
+2. 프로젝트 폴더 전체를 GitHub 저장소에 업로드
+
+3. Cloudflare Pages 설정
+   - Framework preset: None
+   - Build command: npm run build
+   - Build output directory: public
+   - Production branch: main
+
+4. pages.dev 임시 주소에서 20개 계산기 테스트
+
+5. 실제 도메인 연결
+
+6. Google Search Console·네이버 서치어드바이저 등록
+   - 사이트맵: /sitemap.xml
+   - 로봇 파일: /robots.txt
+
+7. AdSense 승인 후 site.config.json에 입력
+   - adsenseClient
+   - adsenseSlots(수동 광고를 쓸 때만)
+
+자세한 설명은 README.md를 확인하세요.

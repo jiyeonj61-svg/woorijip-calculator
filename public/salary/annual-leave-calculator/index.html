@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>연차 계산기 – 입사일 기준 발생일수·잔여연차 | 우리집계산기</title>
+  <meta name="description" content="입사일과 기준일을 입력해 근속기간별 법정 연차 발생일수와 남은 연차를 계산합니다.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://example.com/salary/annual-leave-calculator/">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="우리집계산기">
+  <meta property="og:title" content="연차 계산기 – 입사일 기준 발생일수·잔여연차 | 우리집계산기">
+  <meta property="og:description" content="입사일과 기준일을 입력해 근속기간별 법정 연차 발생일수와 남은 연차를 계산합니다.">
+  <meta property="og:url" content="https://example.com/salary/annual-leave-calculator/">
+  <meta property="og:image" content="https://example.com/assets/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#3157d5">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/assets/styles.css">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"연차 계산기","url":"https://example.com/salary/annual-leave-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web","isAccessibleForFree":true,"description":"입사일과 기준일을 입력해 근속기간별 법정 연차 발생일수와 남은 연차를 계산합니다.","provider":{"@type":"Organization","name":"우리집계산기","url":"https://example.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://example.com/"},{"@type":"ListItem","position":2,"name":"급여·노무","item":"https://example.com/salary/"},{"@type":"ListItem","position":3,"name":"연차 계산기","item":"https://example.com/salary/annual-leave-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"입사 1년이 되면 26일이 생기나요?","acceptedAnswer":{"@type":"Answer","text":"최초 1년 동안 월 단위로 발생한 연차와 1년 근무 후 발생하는 15일은 사용·발생 시점에 따라 별도로 관리됩니다."}},{"@type":"Question","name":"5인 미만 사업장도 법정 연차가 있나요?","acceptedAnswer":{"@type":"Answer","text":"근로기준법 제60조의 일반적 연차 규정은 상시 5인 이상 사업장에 적용됩니다."}}]}</script>
+</head>
+<body>
+  
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="우리집계산기 홈">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 10.8 12 4l8 6.8v8.1a1.1 1.1 0 0 1-1.1 1.1H5.1A1.1 1.1 0 0 1 4 18.9v-8.1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.3 11.5h7.4M8.3 15h2.1m3.2 0h2.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </span>
+        <span class="brand-copy"><strong>우리집계산기</strong><small>세금부터 급여·대출·투자·생활비까지 한 번에</small></span>
+      </a>
+      <button class="menu-button" type="button" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+      <nav class="main-nav" aria-label="주요 메뉴"><a href="/tax/" >세금·사업자</a><a href="/salary/" aria-current="page">급여·노무</a><a href="/loan/" >대출·저축</a><a href="/real-estate/" >부동산</a><a href="/investment/" >투자</a><a href="/living/" >생활</a><a href="/about/">소개</a></nav>
+    </div>
+  </header>
+  <main id="main"><div class="breadcrumb-wrap"><div class="container breadcrumb"><a href="/">홈</a><a href="/salary/">급여·노무</a><span>연차 계산기</span></div></div>
+  <section class="page-hero"><div class="container page-hero-inner"><div><span class="page-kicker">급여·노무 · 근로기준법</span><h1>연차 계산기</h1><p>입사일과 기준일을 입력해 근속기간별 법정 연차 발생일수와 남은 연차를 계산합니다.</p></div><div class="page-hero-icon">₩</div></div></section>
+  <div class="container calc-layout"><div class="calc-main"><section class="panel calc-card">
+    <div class="calc-card-header"><strong>연차 계산기</strong><span>입력값은 서버에 저장되지 않습니다</span></div>
+    <form class="calc-form" id="calculatorForm" data-calculator-id="annualLeave">
+      <div class="field-grid"><div class="field "><span class="field-label">입사일</span><input id="leaveHireDate" name="leaveHireDate" type="date" value="2022-08-01"></div><div class="field "><span class="field-label">계산 기준일</span><input id="leaveReferenceDate" name="leaveReferenceDate" type="date" value="2026-08-16"></div> <div class="field "><span class="field-label">사용한 연차</span><div class="input-wrap"><input id="leaveUsedDays" name="leaveUsedDays" type="number" value="7" step="any" ><span class="input-unit">일</span></div><p class="field-help">반차는 0.5일로 입력할 수 있습니다.</p></div> <div class="field "><span class="field-label">개근 월수</span><div class="input-wrap"><input id="leavePerfectMonths" name="leavePerfectMonths" type="number" value="11" step="any" min="0" max="11"><span class="input-unit">개월</span></div><p class="field-help">출근율 80% 미만일 때 월 단위 발생일수에 사용합니다.</p></div> <div class="field "><span class="field-label">주 소정근로시간</span><div class="input-wrap"><input id="leaveWeeklyHours" name="leaveWeeklyHours" type="number" value="40" step="any" ><span class="input-unit">시간</span></div></div> <div class="field"><span class="field-label">설정</span><label class="inline-check"><input id="leaveAttendance80" type="checkbox" checked><span>최근 1년 출근율 80% 이상</span></label></div> <div class="field"><span class="field-label">설정</span><label class="inline-check"><input id="leaveMonthlyPerfect" type="checkbox" checked><span>1년 미만 기간 매월 개근</span></label></div> <div class="field"><span class="field-label">설정</span><label class="inline-check"><input id="leaveWorkplaceFive" type="checkbox" checked><span>상시근로자 5인 이상</span></label></div></div>
+      <div class="form-actions"><button class="btn btn-primary" type="submit">계산하기</button><button class="btn btn-secondary" id="exampleButton" type="button">예시 입력</button><button class="btn btn-secondary" id="resetButton" type="button">초기화</button></div>
+      <section class="result-box" id="resultBox" aria-live="polite" hidden>
+        <div class="result-head"><strong>계산 결과</strong><div><button class="btn btn-secondary btn-small" id="copyResult" type="button">결과 복사</button> <button class="btn btn-secondary btn-small" id="printButton" type="button">인쇄</button></div></div>
+        <div class="result-summary"><small id="resultSummaryLabel">계산 결과</small><b id="resultSummaryValue">-</b></div>
+        <div class="result-list" id="resultList"></div><p class="result-note" id="resultNote"></p><div class="result-alert" id="resultAlert" hidden></div><div id="resultExtra" hidden></div>
+      </section>
+    </form>
+  </section>
+  <section class="content-section"><h2>연차 계산기 사용 방법</h2><ol><li>계산 기준을 선택하고 필요한 값을 입력합니다.</li><li><strong>계산하기</strong>를 눌러 핵심 결과와 세부 내역을 확인합니다.</li><li>결과 복사 또는 인쇄 기능으로 저장하고, 실제 계약·신고·투자 전 관계기관 기준과 비교합니다.</li></ol><h3>계산 공식</h3><div class="formula">1년 미만: 1개월 개근 시 1일(최대 11일), 1년 이상: 15일, 3년 이상부터 2년마다 1일 가산(최대 25일)</div><h3>정확하게 사용하는 팁</h3><ul><li>상시근로자 5인 이상 사업장인지 확인하세요.</li><li>회계연도 기준 부여 시 회사 관리일수와 다를 수 있습니다.</li></ul><div class="notice">1년간 80% 이상 출근 시 15일, 3년 이상부터 2년마다 1일 가산하는 일반 원칙입니다. 계산 결과는 일반적인 참고값이며 개인별 조건과 최신 제도에 따라 달라질 수 있습니다.</div></section>
+  <section class="content-section"><h2>자주 묻는 질문</h2><h3>입사 1년이 되면 26일이 생기나요?</h3><p>최초 1년 동안 월 단위로 발생한 연차와 1년 근무 후 발생하는 15일은 사용·발생 시점에 따라 별도로 관리됩니다.</p><h3>5인 미만 사업장도 법정 연차가 있나요?</h3><p>근로기준법 제60조의 일반적 연차 규정은 상시 5인 이상 사업장에 적용됩니다.</p></section><section class="content-section"><h2>함께 사용하면 좋은 계산기</h2><div class="related-grid"><a class="related-link" href="/salary/net-salary-calculator/"><strong>연봉 실수령액 계산기</strong><span>연봉·월급에서 4대보험과 예상 세금을 나눠 확인합니다.</span></a><a class="related-link" href="/salary/hourly-monthly-calculator/"><strong>시급·월급 변환 계산기</strong><span>근무시간과 주휴수당을 반영해 시급과 월급을 변환합니다.</span></a><a class="related-link" href="/salary/weekly-holiday-pay-calculator/"><strong>주휴수당 계산기</strong><span>주 15시간 이상 여부와 유급 주휴시간을 함께 확인합니다.</span></a></div></section></div>
+  <aside class="calc-sidebar"><div class="info-card"><h3>이 계산기의 기준</h3><p>1년간 80% 이상 출근 시 15일, 3년 이상부터 2년마다 1일 가산하는 일반 원칙입니다.</p></div><div class="info-card source"><h3>기준·출처 확인</h3><p>국가법령정보센터 근로기준법 제60조</p><a class="source-link" href="https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1001516877" target="_blank" rel="noopener noreferrer">공식 자료 열기 →</a></div><div class="info-card"><h3>꼭 확인하세요</h3><ul><li>입력값은 브라우저에서만 계산됩니다.</li><li>결과는 참고용이며 법률·세무·금융 자문이 아닙니다.</li><li>기준 변경 시 실제 금액과 차이가 날 수 있습니다.</li></ul></div></aside></div></main>
+  
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand"><strong>우리집계산기</strong><p>3.3% 원천징수, 부가세, 연봉 실수령액, 퇴직금, 대출이자, 전월세, 투자수익률까지 무료로 계산하세요. 모든 계산 결과는 일반적인 참고용이며 실제 적용금액과 다를 수 있습니다.</p></div>
+        <div class="footer-links"><h3>서비스</h3><a href="/about/">사이트 소개</a><a href="/disclaimer/">계산 결과 면책</a><a href="/contact/">문의하기</a></div>
+        <div class="footer-links"><h3>정책</h3><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a><a href="/sitemap.xml">사이트맵</a></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 우리집계산기. All rights reserved.</span><span>세금·노무·금융 계산은 관계기관의 최신 기준을 다시 확인하세요.</span></div>
+    </div>
+  </footer>
+  <div class="toast" role="status" aria-live="polite"></div>
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/calculators.js" defer></script>
+</body>
+</html>

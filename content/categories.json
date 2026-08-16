@@ -1,0 +1,38 @@
+[
+  {
+    "id": "tax",
+    "name": "세금·사업자",
+    "icon": "%",
+    "description": "원천징수와 부가가치세를 빠르게 계산합니다."
+  },
+  {
+    "id": "salary",
+    "name": "급여·노무",
+    "icon": "₩",
+    "description": "급여, 수당, 퇴직금과 사회보험을 계산합니다."
+  },
+  {
+    "id": "loan",
+    "name": "대출·저축",
+    "icon": "↗",
+    "description": "대출 상환액과 예금 이자를 비교합니다."
+  },
+  {
+    "id": "real-estate",
+    "name": "부동산",
+    "icon": "⌂",
+    "description": "전월세 전환과 중개보수를 확인합니다."
+  },
+  {
+    "id": "investment",
+    "name": "투자",
+    "icon": "↗",
+    "description": "복리, 평단가와 장기수익률을 계산합니다."
+  },
+  {
+    "id": "living",
+    "name": "생활",
+    "icon": "＋",
+    "description": "평수, 할인율, 날짜 등 생활 계산을 해결합니다."
+  }
+]
