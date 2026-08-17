@@ -95,6 +95,11 @@
         extraEl.hidden = !extraHtml;
       }
       box.hidden = false;
+      box.classList.remove('result-updated');
+      void box.offsetWidth;
+      box.classList.add('result-updated');
+      clearTimeout(window.__wooriResultAnimationTimer);
+      window.__wooriResultAnimationTimer = window.setTimeout(() => box.classList.remove('result-updated'), 360);
       box.dataset.copyText = [
         `${label || '계산 결과'}: ${value || '-'}`,
         ...rows.map(([name, result]) => `${name}: ${result}`),
@@ -155,12 +160,15 @@
         const n = window.WooriCalc.parseNumber(input.value);
         input.value = input.value.trim() === '' ? '' : Math.round(n).toLocaleString('ko-KR');
       };
-      input.addEventListener('blur', format);
-      input.addEventListener('focus', () => {
-        const n = window.WooriCalc.parseNumber(input.value);
-        input.value = input.value.trim() === '' ? '' : String(n);
-        requestAnimationFrame(() => input.select());
-      });
+      if (input.dataset.moneyReady !== 'true') {
+        input.addEventListener('blur', format);
+        input.addEventListener('focus', () => {
+          const n = window.WooriCalc.parseNumber(input.value);
+          input.value = input.value.trim() === '' ? '' : String(n);
+          input.select();
+        });
+        input.dataset.moneyReady = 'true';
+      }
       format();
     });
   }
@@ -235,8 +243,6 @@
       form.reset();
       initMoneyInputs();
       $$('[data-segment-group]').forEach((group) => group.dispatchEvent(new Event('change', { bubbles: true })));
-      const box = $('#resultBox');
-      if (box) box.hidden = true;
       form.dispatchEvent(new CustomEvent('woori:reset'));
     });
   }

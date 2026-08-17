@@ -1002,16 +1002,68 @@
     URL.revokeObjectURL(url);
   }
 
+  const AUTO_CALC_DELAY = 140;
+  let autoCalcTimer = null;
+  let calculating = false;
+
+  function setLiveStatus(text, state = 'ready') {
+    const status = $('#liveCalculationStatus');
+    if (!status) return;
+    status.textContent = text;
+    status.closest('.live-calc-badge')?.setAttribute('data-state', state);
+  }
+
+  function calculateNow(source = 'manual') {
+    const calculate = calculators[calculatorId];
+    if (!calculate || calculating) return;
+    clearTimeout(autoCalcTimer);
+    autoCalcTimer = null;
+    calculating = true;
+    form.dataset.calculationSource = source;
+    form.setAttribute('aria-busy', 'true');
+    setLiveStatus(source === 'manual' ? '계산 결과 갱신 중' : '입력값 자동 반영 중', 'calculating');
+    try {
+      calculate();
+    } finally {
+      calculating = false;
+      form.removeAttribute('aria-busy');
+      setLiveStatus('입력 즉시 자동 계산', 'ready');
+    }
+  }
+
+  function scheduleAutoCalculation(delay = AUTO_CALC_DELAY) {
+    clearTimeout(autoCalcTimer);
+    setLiveStatus('입력값 자동 반영 중', 'calculating');
+    autoCalcTimer = window.setTimeout(() => calculateNow('auto'), delay);
+  }
+
   form.addEventListener('submit', (event) => {
     event.preventDefault();
-    const calculate = calculators[calculatorId];
-    if (calculate) calculate();
+    calculateNow('manual');
+  });
+
+  form.addEventListener('input', (event) => {
+    if (event.isComposing) return;
+    if (!event.target.matches('input, select, textarea')) return;
+    scheduleAutoCalculation();
+  });
+
+  form.addEventListener('change', (event) => {
+    if (!event.target.matches('input, select, textarea')) return;
+    scheduleAutoCalculation(0);
+  });
+
+  form.addEventListener('click', (event) => {
+    const quickButton = event.target.closest('[data-quick-target][data-quick-value]');
+    if (!quickButton) return;
+    setField(quickButton.dataset.quickTarget, quickButton.dataset.quickValue);
+    calculateNow('quick');
   });
 
   $('#exampleButton')?.addEventListener('click', () => {
     const fill = examples[calculatorId];
     if (fill) fill();
-    form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+    calculateNow('example');
   });
 
   form.addEventListener('woori:reset', () => {
@@ -1022,5 +1074,16 @@
       setField('dateStart', today.toISOString().slice(0,10));
       setField('dateEnd', later.toISOString().slice(0,10));
     }
+    scheduleAutoCalculation(0);
+  });
+
+  const runInitialCalculation = () => window.requestAnimationFrame(() => calculateNow('initial'));
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', runInitialCalculation, { once: true });
+  } else {
+    runInitialCalculation();
+  }
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) scheduleAutoCalculation(0);
   });
 })();

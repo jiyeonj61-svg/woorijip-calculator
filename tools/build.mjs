@@ -179,10 +179,11 @@ const checkbox = (id, label, checked = false, help = '') => `<div class="field">
 
 function formShell(calc, inner) {
   return `<section class="panel calc-card">
-    <div class="calc-card-header"><strong>${esc(calc.title)}</strong><span>입력값은 서버에 저장되지 않습니다</span></div>
-    <form class="calc-form" id="calculatorForm" data-calculator-id="${calc.id}">
+    <div class="calc-card-header"><strong>${esc(calc.title)}</strong><div class="calc-card-meta"><span class="live-calc-badge" data-state="ready"><i aria-hidden="true"></i><span id="liveCalculationStatus">입력 즉시 자동 계산</span></span><span class="privacy-note">입력값은 서버에 저장되지 않습니다</span></div></div>
+    <form class="calc-form" id="calculatorForm" data-calculator-id="${calc.id}" data-auto-calculate="true" aria-describedby="autoCalculationHelp">
       ${inner}
       <div class="form-actions"><button class="btn btn-primary" type="submit">계산하기</button><button class="btn btn-secondary" id="exampleButton" type="button">예시 입력</button><button class="btn btn-secondary" id="resetButton" type="button">초기화</button></div>
+      <p class="auto-calc-help" id="autoCalculationHelp">금액·기간·옵션을 바꾸면 계산 결과가 자동으로 갱신됩니다. 계산하기 버튼으로 즉시 다시 계산할 수도 있습니다.</p>
       <section class="result-box" id="resultBox" aria-live="polite" hidden>
         <div class="result-head"><strong>계산 결과</strong><div><button class="btn btn-secondary btn-small" id="copyResult" type="button">결과 복사</button> <button class="btn btn-secondary btn-small" id="printButton" type="button">인쇄</button></div></div>
         <div class="result-summary"><small id="resultSummaryLabel">계산 결과</small><b id="resultSummaryValue">-</b></div>
@@ -196,10 +197,12 @@ function renderForm(calc) {
   switch (calc.id) {
     case 'withholding33': return formShell(calc, `
       ${seg('withholdingMode',[{value:'gross',label:'계약금액으로 계산'},{value:'net',label:'수령액으로 역산'}])}
-      <div class="field-grid">${money('withholdingAmount','계산할 금액',1000000,'계약금액 또는 통장에 실제로 받은 금액을 입력하세요.',true)}${selectInput('withholdingRounding','원 단위 처리',[{value:'round',label:'반올림',selected:true},{value:'floor',label:'버림'},{value:'ceil',label:'올림'}],'지급처의 정산 방식에 맞게 선택하세요.',true)}</div>`);
+      <div class="field-grid primary-entry">${money('withholdingAmount','계산할 금액',1000000,'계약금액 또는 통장에 실제로 받은 금액을 입력하세요.',true)}</div>
+      <div class="field-grid settings-grid">${selectInput('withholdingRounding','원 단위 처리',[{value:'round',label:'반올림',selected:true},{value:'floor',label:'버림'},{value:'ceil',label:'올림'}],'지급처의 정산 방식에 맞게 선택하세요.',true)}</div>`);
     case 'vat': return formShell(calc, `
       ${seg('vatMode',[{value:'total',label:'합계금액으로 계산'},{value:'supply',label:'공급가액으로 계산'}])}
-      <div class="field-grid">${money('vatAmount','계산할 금액',2200000,'부가세 포함 합계금액 또는 공급가액을 입력하세요.',true)}${numberInput('vatRate','부가세율',10,'%','일반과세자 기본값은 10%입니다.')} ${selectInput('vatRounding','원 단위 처리',[{value:'round',label:'반올림',selected:true},{value:'floor',label:'버림'},{value:'ceil',label:'올림'}])}</div>`);
+      <div class="field-grid primary-entry">${money('vatAmount','계산할 금액',2200000,'부가세 포함 합계금액 또는 공급가액을 입력하세요.',true)}</div>
+      <div class="field-grid settings-grid">${numberInput('vatRate','부가세율',10,'%','일반과세자 기본값은 10%입니다.')} ${selectInput('vatRounding','원 단위 처리',[{value:'round',label:'반올림',selected:true},{value:'floor',label:'버림'},{value:'ceil',label:'올림'}])}</div>`);
     case 'netSalary': return formShell(calc, `
       ${seg('salaryMode',[{value:'annual',label:'연봉으로 계산'},{value:'monthly',label:'월급으로 계산'}])}
       <div class="field-grid">${money('salaryAmount','연봉 또는 월급',48000000,'선택한 기준에 맞춰 세전 금액을 입력하세요.',true)}${money('salaryNonTax','월 비과세액',200000,'식대 등 실제 비과세로 처리되는 월 금액입니다.')} ${numberInput('salaryDependents','부양가족 수',1,'명','본인을 포함한 기본공제 대상 인원입니다.',false,'min="1"')} ${numberInput('salaryChildren','8~20세 자녀 수',0,'명','간편 세액 추정에만 활용됩니다.',false,'min="0"')} ${selectInput('salaryWithholdingRatio','간이세액 선택',[{value:'80',label:'80%'},{value:'100',label:'100%',selected:true},{value:'120',label:'120%'}])}</div>
@@ -229,7 +232,7 @@ function renderForm(calc) {
       <div class="field-grid">${selectInput('brokerageProperty','부동산 유형',[{value:'housing',label:'주택',selected:true},{value:'officetel',label:'주거용 오피스텔'},{value:'other',label:'토지·상가·기타'}])}${numberInput('brokerageNegotiatedRate','협의요율(선택)',0,'%','0으로 두면 법정 상한요율을 적용합니다.')} ${checkbox('brokerageIncludeVat','부가세 10% 포함',true)}</div>
       ${modePanel('brokerageDeal','sale',`<div class="field-grid" style="margin-top:16px">${money('brokerageSalePrice','매매가격',600000000,'',true)}</div>`)}
       ${modePanel('brokerageDeal','lease',`<div class="field-grid" style="margin-top:16px">${money('brokerageDeposit','보증금',100000000)}${money('brokerageMonthlyRent','월세',1000000,'전세는 0원으로 입력하세요.')}</div>`)}`);
-    case 'pyeong': return formShell(calc, `${seg('pyeongMode',[{value:'sqmToPyeong',label:'㎡ → 평'},{value:'pyeongToSqm',label:'평 → ㎡'}])}<div class="field-grid">${numberInput('pyeongArea','변환할 면적',84,'','소수점 입력도 가능합니다.',true)}</div><div class="form-actions" style="margin-top:12px"><button type="button" class="btn btn-secondary btn-small" onclick="document.getElementById('pyeongArea').value=59">59㎡</button><button type="button" class="btn btn-secondary btn-small" onclick="document.getElementById('pyeongArea').value=74">74㎡</button><button type="button" class="btn btn-secondary btn-small" onclick="document.getElementById('pyeongArea').value=84">84㎡</button><button type="button" class="btn btn-secondary btn-small" onclick="document.getElementById('pyeongArea').value=102">102㎡</button></div>`);
+    case 'pyeong': return formShell(calc, `${seg('pyeongMode',[{value:'sqmToPyeong',label:'㎡ → 평'},{value:'pyeongToSqm',label:'평 → ㎡'}])}<div class="field-grid">${numberInput('pyeongArea','변환할 면적',84,'','소수점 입력도 가능합니다.',true)}</div><div class="quick-value-actions"><button type="button" class="btn btn-secondary btn-small" data-quick-target="pyeongArea" data-quick-value="59">59㎡</button><button type="button" class="btn btn-secondary btn-small" data-quick-target="pyeongArea" data-quick-value="74">74㎡</button><button type="button" class="btn btn-secondary btn-small" data-quick-target="pyeongArea" data-quick-value="84">84㎡</button><button type="button" class="btn btn-secondary btn-small" data-quick-target="pyeongArea" data-quick-value="102">102㎡</button></div>`);
     case 'discount': return formShell(calc, `
       ${seg('discountMode',[{value:'forward',label:'할인 후 가격 계산'},{value:'reverse',label:'할인율 역산'}])}
       <div class="field-grid">${money('discountOriginal','정상가격',200000,'',true)}</div>
